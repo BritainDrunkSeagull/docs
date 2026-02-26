@@ -172,7 +172,7 @@
 
 > [!api]
 >
-> @api {POST} /ipLoadbalancing/{serviceName}/tcp/route
+> @api {v1} /ipLoadbalancing POST /ipLoadbalancing/{serviceName}/tcp/route
 >
 ```
 
@@ -189,6 +189,24 @@
 
 ![api](images/api.png)
 
+## Tabs
+
+```md
+/* markdown */
+
+> [!tabs]
+> Tab title 1
+>> Some *content*
+> Tab title 2
+>> Some *content*
+> Tab title 3
+>> ```
+>> Some content
+>> ```
+```
+
+An example can be found here : [guide source](https://github.com/ovh/docs/blob/develop/pages/platform/databases/databases_07_cross_service_integration/guide.en-gb.md) & [rendered version](https://help.ovhcloud.com/csm/en-gb-databases-cross-service-integration?id=kb_article_view&sysparm_article=KB0048804#get-the-desired-cluster-id).
+
 ## Advanced
 
 You can mix different custom syntax
@@ -202,7 +220,7 @@ You can mix different custom syntax
 >
 >> > [!api]
 >> >
->> > @api {POST} /ipLoadbalancing/{serviceName}/tcp/route
+>> > @api {v1} /ipLoadbalancing POST /ipLoadbalancing/{serviceName}/tcp/route
 >> >
 >>
 >

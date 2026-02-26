@@ -1,0 +1,69 @@
+---
+title: 'Configurar el servicio OVHcloud Link Aggregation desde el área de cliente de OVHcloud'
+excerpt: 'Activar el servicio OVHcloud Link Aggregation en el área de cliente'
+updated: 2022-05-18
+---
+
+## Objetivo
+
+La tecnología OVHcloud Link Aggregation (OLA) está diseñada para aumentar la disponibilidad de su servidor y mejorar la eficiencia de sus conexiones de red. En solo unos clics, es posible añadir sus tarjetas de red y hacer que sus enlaces de red sean redundantes. De este modo, si un enlace se cae, el tráfico se redirige automáticamente hacia otro enlace disponible.<br>
+La agregación se basa en la tecnología IEEE 802.3ad o Link Aggregation Control Protocol (LACP).
+
+**Esta guía explica cómo configurar el servicio OLA en el área de cliente.**
+
+## Requisitos
+
+- Tener un [servidor dedicado OVHcloud](/links/bare-metal/bare-metal) de las gamas Advance, Scale o High Grade.
+- Haber iniciado sesión en el [área de cliente de OVHcloud](/links/manager).
+- Tener un sistema operativo/hipervisor que soporta el protocolo de agregación 802.3ad (LACP).
+
+## Procedimiento
+
+> [!warning]
+>
+> La configuración OLA se realiza en todas las interfaces de red. Formarán un agregado de tipo "agregación privada".
+>
+> Tras la implementación de OLA, la IP pública dejará de estar accesible.
+>
+
+### Configurar OLA en el área de cliente de OVHcloud
+
+Para empezar a configurar OLA, conéctese al [área de cliente de OVHcloud](/links/manager) y abra la pestaña `Bare Metal Cloud`{.action}. Haga clic en `Servidores dedicados`{.action} y seleccione el servidor en la lista.
+
+![network interfaces](images/network_interfaces2022.png){.thumbnail}
+
+En la pestaña `Interfaces de red`{.action} (1), haga clic en el botón `...`{.action} (2) a la derecha de "Modo" en el cuadro **OLA: OVHcloud Link Aggregation**. Haga clic en `Configurar la agregación privada`{.action} (2).
+
+![interfaz select](images/interface_select2021.png){.thumbnail}
+
+Compruebe que las dos interfaces, o grupos de interfaces, estén bien seleccionadas y asigne un nombre a la interfaz OLA. Haga clic en `Confirmar`{.action} una vez que haya finalizado la verificación.
+
+La operación puede tardar unos minutos. Cuando haya terminado, el paso siguiente será configurar las interfaces de su sistema operativo con un vínculo NIC o un equipo NIC. Para saber cómo proceder, puede consultar las siguientes guías diseñadas para los sistemas operativos más populares:
+
+[Configurar un NIC para el servicio OVHcloud Link Aggregation en Debian 9 a través de ifupdown](/pages/bare_metal_cloud/dedicated_servers/ola-enable-debian9).
+
+[Configurar un NIC para el servicio OVHcloud Link Aggregation en Windows Server 2019](/pages/bare_metal_cloud/dedicated_servers/ola-enable-w2k19).
+
+[Configurar un NIC para el servicio OVHcloud Link Aggregation en SLES 15](/pages/bare_metal_cloud/dedicated_servers/ola-enable-sles15).
+
+[How to configure Your NIC for OVHcloud Link Aggregation in Debian 12 or Ubuntu 24.04 using Netplan](/pages/bare_metal_cloud/dedicated_servers/lacp-enable-netplan).
+
+### Restaurar OLA a los valores predeterminados
+
+Para restablecer OLA a los valores predeterminados, haga clic en el botón `...`{.action} a la derecha de "Modo" en el recuadro **OLA: OVHcloud Link Aggregation**. Haga clic en `Desconfigurar la agregación privada`{.action}. Haga clic en `Confirmar`{.action} en el menú contextual.
+
+![network interfaces](images/default_settings2021.png){.thumbnail}
+
+La operación puede tardar unos minutos.
+
+## Más información
+
+[Configurar un NIC para el servicio OVHcloud Link Aggregation en Debian 9 a través de ifupdown](/pages/bare_metal_cloud/dedicated_servers/ola-enable-debian9).
+
+[Configurar un NIC para el servicio OVHcloud Link Aggregation en Windows Server 2019](/pages/bare_metal_cloud/dedicated_servers/ola-enable-w2k19).
+
+[Configurar un NIC para el servicio OVHcloud Link Aggregation en SLES 15](/pages/bare_metal_cloud/dedicated_servers/ola-enable-sles15).
+
+[How to configure Your NIC for OVHcloud Link Aggregation in Debian 12 or Ubuntu 24.04 using Netplan](/pages/bare_metal_cloud/dedicated_servers/lacp-enable-netplan).
+
+Interactúe con nuestra [comunidad de usuarios](/links/community).
